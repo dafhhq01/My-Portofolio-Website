@@ -4,7 +4,7 @@ const experiences = [
     institution: 'Dicoding',
     date: 'Januari 2025',
     story: 'Kelas yang menjadi langkah awal saya dalam pemrograman, mulai dari memahami kebutuhan aplikasi, perencanaan modifikasi aplikasi, konsep dasar pemrograman, modifikasi aplikasi perangkat lunak sampai ke dokumentasi pemrograman dan pengembangan aplikasi perangkat lunak',
-    image: '/src/assets/images/1.Memulai-Dasar-Pemrogramman.jpg',
+    image: './src/assets/images/1.Memulai-Dasar-Pemrogramman.jpg',
     link: 'https://www.dicoding.com/certificates/1RXYE4JQ9ZVM',
   },
   {
