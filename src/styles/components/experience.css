@@ -1,0 +1,249 @@
+/* Reset outline dan box-shadow global */
+* {
+  outline: none;
+  box-shadow: none;
+}
+
+button,
+a,
+input,
+textarea {
+  outline: none;
+  box-shadow: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Section utama */
+.experiences-section {
+  padding: 8rem 1rem;
+  background-color: #0e0e0e;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Judul dan subjudul */
+.experience-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.25rem;
+}
+
+.experience-subtitle {
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 3rem;
+  color: #c5a3ff;
+}
+
+/* Slider */
+.experience-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.experience-slider::-webkit-scrollbar {
+  height: 6px;
+}
+
+.experience-slider::-webkit-scrollbar-thumb {
+  background-color: #6b00b6;
+  border-radius: 10px;
+}
+
+/* Grid */
+.experience-grid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.experience-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Kartu pengalaman */
+.experience-card {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-width: 280px;
+  max-width: 320px;
+  width: 85%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px #b28affcc;
+}
+
+/* Konten kartu */
+.experience-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.experience-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.experience-content span {
+  font-size: 0.9rem;
+  color: #b28dff;
+}
+
+.experience-content p {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+/* Sertifikat */
+.certificate-image {
+  width: 100%;
+  height: 180px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(178, 138, 255, 0.3);
+}
+
+.experience-info {
+  padding: 1.5rem 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-title {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #b28aff;
+}
+
+.certificate-institution,
+.certificate-date {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.certificate-story {
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+.certificate-link {
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  align-self: flex-start;
+  text-decoration: none;
+  color: #a56eff;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  background: rgba(165, 110, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+.certificate-link:hover {
+  background: rgba(165, 110, 255, 0.35);
+  color: #e0d4ff;
+}
+
+/* Tombol slider */
+.slider-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.slider-button {
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(165, 110, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+.slider-button:hover {
+  background: rgba(165, 110, 255, 0.4);
+}
+
+.slider-button.left {
+  left: 8px;
+}
+
+.slider-button.right {
+  right: 8px;
+}
+
+/* Responsive tombol */
+@media (max-width: 480px) {
+  .slider-button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive kartu */
+@media (max-width: 767px) {
+  .experience-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .experience-card {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experience-card {
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+}
