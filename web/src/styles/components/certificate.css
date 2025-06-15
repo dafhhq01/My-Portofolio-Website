@@ -18,25 +18,34 @@ textarea {
 }
 
 /* Section utama */
-.experiences-section {
+.certificates-section {
   padding: 8rem 1rem;
-  background-color: #0e0e0e;
+  background-color: black;
   color: white;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Judul dan subjudul */
-.experience-title {
+.certificates-title {
   text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 0.25rem;
+  color: #d0a3ff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
 }
 
-.experience-subtitle {
-  text-align: center;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  margin-bottom: 3rem;
-  color: #c5a3ff;
+/* Garis bawah custom */
+.certificates-title::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.4rem;
+  width: 80px;
+  height: 3px;
+  background-color: #8b44ff;
+  border-radius: 4px;
 }
 
 /* Slider */
@@ -59,7 +68,7 @@ textarea {
 }
 
 /* Grid */
-.experience-grid {
+.certificates-grid {
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
@@ -68,12 +77,12 @@ textarea {
   -webkit-overflow-scrolling: touch;
 }
 
-.experience-grid::-webkit-scrollbar {
+.certificates-grid::-webkit-scrollbar {
   display: none;
 }
 
 /* Kartu pengalaman */
-.experience-card {
+.certificate-card {
   flex: 0 0 auto;
   scroll-snap-align: center;
   background: rgba(255, 255, 255, 0.06);
@@ -81,19 +90,19 @@ textarea {
   border-radius: 16px;
   padding: 1.5rem;
   min-width: 280px;
-  max-width: 320px;
-  width: 85%;
+  max-width: 280px;
+  width: 80%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.experience-card:hover {
-  transform: translateY(-6px);
+.certificate-card:hover {
+  transform: translateY(-8px);
   box-shadow: 0 0 20px #b28affcc;
 }
 
 /* Konten kartu */
-.experience-image {
+.certificate-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -101,17 +110,17 @@ textarea {
   margin-bottom: 1rem;
 }
 
-.experience-content h3 {
+.certificate-content h3 {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
-.experience-content span {
+.certificate-content span {
   font-size: 0.9rem;
   color: #b28dff;
 }
 
-.experience-content p {
+.certificate-content p {
   margin-top: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -128,7 +137,7 @@ textarea {
   border-bottom: 1px solid rgba(178, 138, 255, 0.3);
 }
 
-.experience-info {
+.certificate-info {
   padding: 1.5rem 1.75rem;
   flex: 1;
   display: flex;
@@ -160,7 +169,7 @@ textarea {
 .certificate-link {
   outline: none;
   box-shadow: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   align-self: flex-start;
   text-decoration: none;
   color: #a56eff;
@@ -177,17 +186,17 @@ textarea {
 }
 
 /* Tombol slider */
-.slider-container {
+.slider-container-certificate {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-.slider-button {
+.slider-button-certificate {
   outline: none;
   box-shadow: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -204,15 +213,15 @@ textarea {
   transition: background 0.3s ease;
 }
 
-.slider-button:hover {
+.slider-button-certificate:hover {
   background: rgba(165, 110, 255, 0.4);
 }
 
-.slider-button.left {
+.slider-button-certificate.left {
   left: 8px;
 }
 
-.slider-button.right {
+.slider-button-certificate.right {
   right: 8px;
 }
 
@@ -227,23 +236,77 @@ textarea {
 
 /* Responsive kartu */
 @media (max-width: 767px) {
-  .experience-card {
+
+  .certificate-card {
+    flex: 0 0 70%;
+    max-width: 70%;
+    min-width: 70%;
+    max-height: 450px;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .certificate-image {
+    height: 140px;
+  }
+
+  .certificate-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .certificate-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .certificate-info {
+    padding: 1rem 1.2rem;
+  }
+
+  .certificate-title {
+    font-size: 1.1rem;
+  }
+
+  .certificate-institution,
+  .certificate-date {
+    font-size: 0.85rem;
+  }
+
+  .certificate-story {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .certificate-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .certificate-card {
     flex: 0 0 100%;
     max-width: 100%;
     min-width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    padding: 2rem;
   }
 }
 
 @media (min-width: 768px) {
-  .experience-card {
-    flex: 0 0 45%;
-    max-width: 45%;
+  .certificate-card {
+    flex: 0 0 60%;
+    max-width: 60%;
   }
 }
 
 @media (min-width: 1024px) {
-  .experience-card {
-    flex: 0 0 33%;
-    max-width: 33%;
+  .certificate-card {
+    flex: 0 0 32%;
+    max-width: 32%;
   }
 }

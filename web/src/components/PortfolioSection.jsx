@@ -1,18 +1,17 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import certificates from '../data/certificate.js';
-import CertificateCard from './CertificateCard';
-import '../styles/components/certificate.css';
+import '../styles/components/portfolio.css';
+import portfolios from '../data/portfolios.js';
 
-function CertificateCards() {
+function PortfolioSection() {
   const sliderRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(300);
   const [isHovered, setIsHovered] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('right');
   const autoScrollIntervalRef = useRef(null);
   const autoScrollTimeoutRef = useRef(null);
-  const lastScrollLeftRef = useRef(0); // posisi terakhir yang dilacak
+  const lastScrollLeftRef = useRef(0);
 
-  // Inisialisasi lebar card
+  // Hitung lebar card saat pertama render
   useEffect(() => {
     if (sliderRef.current?.children.length > 0) {
       const firstCard = sliderRef.current.children[0];
@@ -20,7 +19,7 @@ function CertificateCards() {
     }
   }, []);
 
-  // Auto scroll handler (ping-pong)
+  // Auto scroll ping-pong
   const startAutoScroll = useCallback(() => {
     clearInterval(autoScrollIntervalRef.current);
     autoScrollIntervalRef.current = setInterval(() => {
@@ -49,13 +48,12 @@ function CertificateCards() {
     }, 3000);
   }, [cardWidth, isHovered, scrollDirection]);
 
-  // Auto scroll initializer
   useEffect(() => {
     startAutoScroll();
     return () => clearInterval(autoScrollIntervalRef.current);
   }, [startAutoScroll]);
 
-  // Delay restart auto scroll
+  // Delay saat scroll manual
   const resetAutoScrollDelay = useCallback(() => {
     clearInterval(autoScrollIntervalRef.current);
     clearTimeout(autoScrollTimeoutRef.current);
@@ -65,7 +63,7 @@ function CertificateCards() {
     }, 5000);
   }, [startAutoScroll]);
 
-  // Manual scroll handler
+  // Scroll kiri/kanan manual
   const scrollTo = useCallback(
     (direction) => {
       const container = sliderRef.current;
@@ -82,35 +80,30 @@ function CertificateCards() {
     [cardWidth, resetAutoScrollDelay]
   );
 
-  // Keyboard navigation
+  // Keyboard navigation (optional)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!sliderRef.current) return;
-      if (e.key === 'ArrowRight') {
-        scrollTo('right');
-      } else if (e.key === 'ArrowLeft') {
-        scrollTo('left');
-      }
+      if (e.key === 'ArrowRight') scrollTo('right');
+      if (e.key === 'ArrowLeft') scrollTo('left');
     };
-
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [scrollTo]);
 
   return (
-    <section id="certificates" className="certificates-section">
-      <h2 className="certificates-title">Certificate</h2>
-
-      <div className="slider-container-certificate">
+    <section id="portfolio" className="portfolio-section">
+      <h2 className="portfolio-title">Portofolio</h2>
+      <div className="slider-container">
         <button
-          className="slider-button-certificate left"
+          className="slider-btn left"
           onClick={() => scrollTo('left')}
           aria-label="Scroll left"
         >
-          ←
+          ❮
         </button>
         <div
-          className="certificates-grid"
+          className="portfolio-slider"
           ref={sliderRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -120,20 +113,26 @@ function CertificateCards() {
             }
           }}
         >
-          {certificates.map((exp, index) => (
-            <CertificateCard key={index} certificate={exp} />
+          {portfolios.map((item, index) => (
+            <div className="portfolio-card" key={index}>
+              <img src={item.image} alt={item.title} />
+              <div className="portfolio-text">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
           ))}
         </div>
         <button
-          className="slider-button-certificate right"
+          className="slider-btn right"
           onClick={() => scrollTo('right')}
           aria-label="Scroll right"
         >
-          →
+          ❯
         </button>
       </div>
     </section>
   );
 }
 
-export default CertificateCards;
+export default PortfolioSection;

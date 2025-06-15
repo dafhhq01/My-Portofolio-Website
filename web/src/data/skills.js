@@ -1,34 +1,34 @@
-// src/data/skills.js
+import code from '../assets/icons/code.svg';
+import design from '../assets/icons/design.svg';
+import checklist from '../assets/icons/ceklis.svg';
+import robot from '../assets/icons/robot.svg';
+import handshake from '../assets/icons/handshake.svg';
+import grow from '../assets/icons/grow.svg';
+
 const skills = [
   {
-    name: "HTML",
-    icon: "🟧", // Bisa diganti ke ikon svg nanti
-    level: "Advanced",
+    name: "Web Developer",
+    icon: code
   },
   {
-    name: "CSS",
-    icon: "🔵",
-    level: "Advanced",
+    name: "UI/UX Designer",
+    icon: design
   },
   {
-    name: "JavaScript",
-    icon: "🟨",
-    level: "Intermediate",
+    name: "Copywriting & Funnel Strategy",
+    icon: checklist
   },
   {
-    name: "React JS",
-    icon: "⚛️",
-    level: "Intermediate",
+    name: "Integrasi AI & Otomasi",
+    icon: robot
   },
   {
-    name: "Python",
-    icon: "🐍",
-    level: "Intermediate",
+    name: "Business & Buyer Psychology",
+    icon: handshake
   },
   {
-    name: "C++",
-    icon: "💻",
-    level: "Basic",
+    name: "Digital Strategy & Optimization",
+    icon: grow
   },
 ];
 

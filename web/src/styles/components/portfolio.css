@@ -1,0 +1,193 @@
+.portfolio-section {
+  position: relative;
+  padding: 6rem 2rem;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.portfolio-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 40px;
+  color: #d0a3ff;
+  position: relative;
+  font-weight: bold;
+}
+
+.portfolio-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: clamp(80px, 12%, 150px);
+  height: 3px;
+  background-color: #8b44ff;
+  border-radius: 4px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-slider {
+  display: flex;
+  gap: 5.5rem;
+  overflow-x: auto;
+  padding: 2rem 2rem 2rem 4rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+.portfolio-slider::-webkit-scrollbar {
+  height: 6px;
+}
+
+.portfolio-slider::-webkit-scrollbar-thumb {
+  background-color: #6b00b6;
+  border-radius: 10px;
+}
+
+.portfolio-card {
+  scroll-snap-align: center;
+  background-color: #7a42f4;
+  border-radius: 1rem;
+  color: white;
+  padding: 1.5rem 2rem 1.5rem 5rem;
+  width: 400px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #b28affcc;
+}
+
+.portfolio-card img {
+  width: 130px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 1rem;
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-text {
+  text-align: left;
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.portfolio-text h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-text p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Tombol navigasi */
+.slider-btn {
+  outline: none;
+  box-shadow: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(165, 110, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+.slider-btn.left {
+  left: 10px;
+}
+
+.slider-btn.right {
+  right: 10px;
+}
+
+.slider-btn:hover {
+  background: rgba(165, 110, 255, 0.4);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .portfolio-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+    height: 60vh;
+  }
+
+  .portfolio-slider {
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .portfolio-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 1rem;
+    height: auto;
+    width: 99%;
+    max-width: 280px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .portfolio-card img {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0.8rem;
+  }
+
+  .portfolio-text {
+    margin-left: 0;
+  }
+
+  .portfolio-text h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .portfolio-text p {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .portfolio-title {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 2rem;
+  }
+}
