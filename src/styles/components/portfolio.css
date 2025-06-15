@@ -138,6 +138,14 @@
 
 /* Responsif */
 @media (max-width: 768px) {
+  .portfolio-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+    height: 60vh;
+  }
+
   .portfolio-slider {
     gap: 1.5rem;
     padding: 1.5rem 1rem;
