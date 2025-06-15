@@ -8,10 +8,14 @@ function Contact() {
         <div className="contact-content">
           <h2>Contact Me</h2>
           <p>Have an idea or collaboration in mind? Let's talk.</p>
-          <form className="contact-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="5" required />
+          <form
+            className="contact-form"
+            action="https://getform.io/f/bmdmjzna"
+            method="POST"
+          >
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" rows="5" required />
             <button type="submit">Send Message</button>
           </form>
         </div>

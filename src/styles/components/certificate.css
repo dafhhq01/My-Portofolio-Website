@@ -20,7 +20,7 @@ textarea {
 /* Section utama */
 .certificates-section {
   padding: 8rem 1rem;
-  background-color: #0e0e0e;
+  background-color: black;
   color: white;
   overflow-x: hidden;
   display: flex;
@@ -42,12 +42,11 @@ textarea {
   display: block;
   margin: 0 auto;
   margin-top: 0.4rem;
-  width: 80px; 
+  width: 80px;
   height: 3px;
   background-color: #8b44ff;
   border-radius: 4px;
 }
-
 
 /* Slider */
 .experience-slider {
@@ -170,7 +169,7 @@ textarea {
 .certificate-link {
   outline: none;
   box-shadow: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   align-self: flex-start;
   text-decoration: none;
   color: #a56eff;
@@ -197,7 +196,7 @@ textarea {
 .slider-button-certificate {
   outline: none;
   box-shadow: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -237,17 +236,71 @@ textarea {
 
 /* Responsive kartu */
 @media (max-width: 767px) {
+
+  .certificate-card {
+    flex: 0 0 70%;
+    max-width: 70%;
+    min-width: 70%;
+    max-height: 450px;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .certificate-image {
+    height: 140px;
+  }
+
+  .certificate-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .certificate-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .certificate-info {
+    padding: 1rem 1.2rem;
+  }
+
+  .certificate-title {
+    font-size: 1.1rem;
+  }
+
+  .certificate-institution,
+  .certificate-date {
+    font-size: 0.85rem;
+  }
+
+  .certificate-story {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .certificate-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
   .certificate-card {
     flex: 0 0 100%;
     max-width: 100%;
     min-width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    padding: 2rem;
   }
 }
 
 @media (min-width: 768px) {
   .certificate-card {
-    flex: 0 0 45%;
-    max-width: 45%;
+    flex: 0 0 60%;
+    max-width: 60%;
   }
 }
 
