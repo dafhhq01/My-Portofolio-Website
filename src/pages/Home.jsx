@@ -6,7 +6,6 @@ import SkillCards from '../components/SkillCards.jsx';
 import Portofolio from '../components/PortfolioSection.jsx';
 import CertificateSection from '../components/CertificateSection.jsx';
 import Contact from '../components/ContactForm.jsx';
-// import CTASection from '../components/CTASection.jsx';
 
 function Home() {
   return (
@@ -18,7 +17,6 @@ function Home() {
       <Portofolio />
       <CertificateSection />
       <Contact />
-      {/* <CTASection /> */}
     </main>
   );
 }
