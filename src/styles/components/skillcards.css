@@ -1,6 +1,6 @@
 .section-bg-text {
   position: absolute;
-  bottom: clamp(450px, 400vw, 350px);
+  bottom: clamp(550px, 500vw, 450px);
   left: 0;
   width: 100%;
   font-size: clamp(2rem, 12vw, 8rem);
@@ -48,28 +48,25 @@
 
 .skill-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(163, 163, 255, 0.2);
+  box-shadow: 0 0 20px #b28affcc;
 }
 
 .skill-icon {
   font-size: 2.5rem;
-  margin-bottom: 0.75rem;
 }
 
 .skill-name {
-  font-size: 1.2rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.3rem;
 }
 
-.skill-level {
-  font-size: 0.9rem;
-  color: #a0a0a0;
+.skill-img-icon {
+  width: 2.5em;
 }
 
 @media (max-width: 768px) {
 
   .section-bg-text {
-    bottom: clamp(630px, 600vw, 550px);
+    bottom: clamp(670px, 660vw, 650px);
   }
 
   .skill-card {
@@ -100,7 +97,7 @@
 @media (max-width: 480px) {
 
   .section-bg-text {
-    bottom: clamp(1170px, 1000vw, 900px);
+    bottom: clamp(1200px, 1100vw, 900px);
   }
 
   .skill-card {

@@ -1,18 +1,20 @@
 import React from 'react';
 import Hero from '../components/Hero.jsx';
+import Services from '../components/ServicesSection.jsx';
 import SkillCards from '../components/SkillCards.jsx';
+import CertificateSection from '../components/CertificateSection.jsx';
 import About from '../components/AboutSection.jsx';
 import Contact from '../components/ContactForm.jsx';
-import ExperienceSection from '../components/ExperienceSection.jsx';
 // import CTASection from '../components/CTASection.jsx';
 
 function Home() {
   return (
     <main>
       <Hero />
-      <About />
+      <Services />
       <SkillCards />
-      <ExperienceSection />
+      <CertificateSection />
+      <About />
       <Contact />
       {/* <CTASection /> */}
     </main>

@@ -10,9 +10,9 @@ function Hero() {
         <img src={profilePic} alt="Foto Profil" className="hero-img" />
         <div>
           <h1>
-            From curiosity to code  —
-            <br /> I’m Daffa, a software engineer 
-            <br /> who turns ideas into digital reality.
+            Hello I'm Daffa —
+            <br /> Web Strategist And 
+            <br /> AI-Integrated Developer
           </h1>
           {/* <p>
             Seorang developer yang menguasai Front-End, Back-End, dan Machine
