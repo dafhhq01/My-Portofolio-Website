@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/components/header.css';
+import CV from '../assets/images/CV.pdf';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,7 +67,7 @@ function Header() {
     <header className="header">
       <div className="container nav-container">
         <a
-          href="/src/assets/images/CV.pdf"
+          href={CV}
           className="download-cv-btn"
           download
         >
