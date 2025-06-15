@@ -5,7 +5,7 @@ import '../styles/components/skillcards.css';
 
 function SkillCards() {
   return (
-    <section className="skills-section">
+    <section id="skills" className="skills-section">
       <h2 className="section-bg-text">Keahlian Saya</h2>
       <div className="skills-grid">
         {skills.map((skill, index) => (

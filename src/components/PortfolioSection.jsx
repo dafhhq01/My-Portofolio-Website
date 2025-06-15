@@ -92,7 +92,7 @@ function PortfolioSection() {
   }, [scrollTo]);
 
   return (
-    <section className="portfolio-section">
+    <section id="portfolio" className="portfolio-section">
       <h2 className="portfolio-title">Portofolio</h2>
       <div className="slider-container">
         <button

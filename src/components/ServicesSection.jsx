@@ -6,7 +6,7 @@ import rocket from "../assets/icons/rocket-2.svg";
 
 const Services = () => {
   return (
-    <section className="services-section">
+    <section id="services" className="services-section">
       <h2 className="services-title">Services</h2>
       <div className="services-cards">
         <div className="service-card">

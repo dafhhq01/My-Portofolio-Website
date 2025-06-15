@@ -5,7 +5,7 @@ import SkillCards from "./SkillCards";
 
 function Hero() { 
   return (
-    <section className="hero">
+    <section id="home" className="hero">
       <div className="hero-content">
         <img src={profilePic} alt="Foto Profil" className="hero-img" />
         <div>
@@ -19,7 +19,7 @@ function Hero() {
             Learning. Saya membangun website profesional dan scalable dengan
             pendekatan fullstack modern.
           </p> */}
-          <a href="/contact" className="hero-btn">
+          <a href="#contact" className="hero-btn">
             Hubungi Saya
           </a>
         </div>

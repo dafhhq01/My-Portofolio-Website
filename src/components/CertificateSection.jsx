@@ -98,7 +98,7 @@ function CertificateCards() {
   }, [scrollTo]);
 
   return (
-    <section className="certificates-section">
+    <section id="certificates" className="certificates-section">
       <h2 className="certificates-title">Certificate</h2>
 
       <div className="slider-container-certificate">

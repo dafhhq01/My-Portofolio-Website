@@ -1,14 +1,14 @@
 * {
   outline: none;
   box-shadow: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .header {
   background-color: #111;
   color: white;
   padding: 1rem 2rem;
-  position: fixed;              
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -23,6 +23,22 @@
   align-items: center;
 }
 
+.download-cv-btn {
+  display: inline-block;
+  padding: 8px 24px;
+  background-color: #6600cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.download-cv-btn:hover {
+  background-color: #8f40e8;
+}
+
 .logo a {
   color: white;
   text-decoration: none;
@@ -32,6 +48,21 @@
 .nav-links {
   display: flex;
   gap: clamp(1rem, 2vw, 2rem);
+}
+
+.nav-links {
+  position: relative;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  background-color: #a3a3ff;
+  transition: transform 0.3s ease, width 0.3s ease;
+  border-radius: 10px;
+  will-change: transform, width;
+  z-index: 1;
 }
 
 .nav-links a {
@@ -76,6 +107,11 @@
 }
 
 @media screen and (max-width: 800px) {
+  .download-cv-btn {
+    padding: 5px 20px;
+    font-size: 0.8rem;
+  }
+
   .nav-links {
     display: none;
   }
@@ -117,5 +153,4 @@
     padding: 2rem;
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
   }
-
 }
