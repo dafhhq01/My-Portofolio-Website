@@ -3,7 +3,7 @@
   padding: 6rem 2rem;
   background-color: #000;
   color: white;
-  text-align: center;
+  text-align: center; 
   overflow: hidden;
   min-height: 100vh;
 }
@@ -189,5 +189,24 @@
   .portfolio-title {
     font-size: clamp(1.5rem, 4vw, 2.2rem);
     margin-bottom: 2rem;
+  }
+}
+
+/* Animasi muncul portfolio card */
+.portfolio-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.animate-portfolio .portfolio-card {
+  animation-play-state: running;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

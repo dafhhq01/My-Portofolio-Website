@@ -12,7 +12,7 @@ function CertificateCards() {
   const autoScrollTimeoutRef = useRef(null);
   const lastScrollLeftRef = useRef(0); // posisi terakhir yang dilacak
 
-  // Inisialisasi lebar card
+  // Inisialisasi lebar card 
   useEffect(() => {
     if (sliderRef.current?.children.length > 0) {
       const firstCard = sliderRef.current.children[0];

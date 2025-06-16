@@ -10,7 +10,6 @@ function Header() {
   const indicatorRef = useRef(null);
   const linkRefs = useRef({});
 
-  // Daftar menu navigasi
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -19,7 +18,6 @@ function Header() {
     { id: 'contact', label: 'Contact' },
   ];
 
-  // Ambil semua id section dari navItems (supaya sinkron)
   const sectionIds = navItems.map(item => item.id);
 
   useEffect(() => {
@@ -47,7 +45,7 @@ function Header() {
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Jalankan langsung saat pertama kali mount
+    handleScroll();
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -63,16 +61,29 @@ function Header() {
     }
   };
 
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(CV);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'CV-Daffa-HQ.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download gagal:', error);
+    }
+  };
+
   return (
     <header className="header">
       <div className="container nav-container">
-        <a
-          href={CV}
-          className="download-cv-btn"
-          download
-        >
+        <button className="download-cv-btn" onClick={handleDownload}>
           Download CV
-        </a>
+        </button>
         <button
           className={`hamburger ${isOpen ? 'open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}

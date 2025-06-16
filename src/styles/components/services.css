@@ -115,3 +115,27 @@
     width: 100px;
   }
 }
+
+/* Default state (sembunyi dulu) */
+.services-cards {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Setelah masuk viewport */
+.animate-services .services-cards {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

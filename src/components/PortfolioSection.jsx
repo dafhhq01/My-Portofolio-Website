@@ -4,14 +4,15 @@ import portfolios from '../data/portfolios.js';
 
 function PortfolioSection() {
   const sliderRef = useRef(null);
+  const sectionRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(300);
   const [isHovered, setIsHovered] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('right');
   const autoScrollIntervalRef = useRef(null);
   const autoScrollTimeoutRef = useRef(null);
   const lastScrollLeftRef = useRef(0);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Hitung lebar card saat pertama render
   useEffect(() => {
     if (sliderRef.current?.children.length > 0) {
       const firstCard = sliderRef.current.children[0];
@@ -19,7 +20,6 @@ function PortfolioSection() {
     }
   }, []);
 
-  // Auto scroll ping-pong
   const startAutoScroll = useCallback(() => {
     clearInterval(autoScrollIntervalRef.current);
     autoScrollIntervalRef.current = setInterval(() => {
@@ -53,17 +53,14 @@ function PortfolioSection() {
     return () => clearInterval(autoScrollIntervalRef.current);
   }, [startAutoScroll]);
 
-  // Delay saat scroll manual
   const resetAutoScrollDelay = useCallback(() => {
     clearInterval(autoScrollIntervalRef.current);
     clearTimeout(autoScrollTimeoutRef.current);
-
     autoScrollTimeoutRef.current = setTimeout(() => {
       startAutoScroll();
     }, 5000);
   }, [startAutoScroll]);
 
-  // Scroll kiri/kanan manual
   const scrollTo = useCallback(
     (direction) => {
       const container = sliderRef.current;
@@ -80,7 +77,6 @@ function PortfolioSection() {
     [cardWidth, resetAutoScrollDelay]
   );
 
-  // Keyboard navigation (optional)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!sliderRef.current) return;
@@ -91,15 +87,30 @@ function PortfolioSection() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [scrollTo]);
 
+  // Intersection Observer untuk trigger animasi saat masuk viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="portfolio" className="portfolio-section">
+    <section
+      id="portfolio"
+      className={`portfolio-section ${isVisible ? 'animate-portfolio' : ''}`}
+      ref={sectionRef}
+    >
       <h2 className="portfolio-title">Portofolio</h2>
       <div className="slider-container">
-        <button
-          className="slider-btn left"
-          onClick={() => scrollTo('left')}
-          aria-label="Scroll left"
-        >
+        <button className="slider-btn left" onClick={() => scrollTo('left')}>
           ❮
         </button>
         <div
@@ -114,7 +125,11 @@ function PortfolioSection() {
           }}
         >
           {portfolios.map((item, index) => (
-            <div className="portfolio-card" key={index}>
+            <div
+              className="portfolio-card"
+              key={index}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
               <img src={item.image} alt={item.title} />
               <div className="portfolio-text">
                 <h3>{item.title}</h3>
@@ -123,11 +138,7 @@ function PortfolioSection() {
             </div>
           ))}
         </div>
-        <button
-          className="slider-btn right"
-          onClick={() => scrollTo('right')}
-          aria-label="Scroll right"
-        >
+        <button className="slider-btn right" onClick={() => scrollTo('right')}>
           ❯
         </button>
       </div>

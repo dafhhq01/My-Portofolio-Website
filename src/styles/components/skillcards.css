@@ -124,3 +124,48 @@
     font-size: 0.7rem;
   }
 }
+
+/* Default: sembunyi dulu */
+.skills-grid {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Setelah animasi trigger */
+.animate-skills .skills-grid {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tambahkan di bagian bawah file CSS */
+
+.skill-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.animate-skills .skill-card {
+  /* Kelas ini ditrigger ketika komponen terlihat */
+  animation-play-state: running;
+}
+
+/* Keyframe animasi */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+

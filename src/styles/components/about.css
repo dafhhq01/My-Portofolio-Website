@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
-  color: white;
+  color: white; 
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -33,4 +33,25 @@
   font-size: clamp(1rem, 4vw, 2rem);
   margin-bottom: 1rem;
   color: #ffffff;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.animate-about .about-content {
+  animation: fadeSlideUp 0.8s ease-out forwards;
 }

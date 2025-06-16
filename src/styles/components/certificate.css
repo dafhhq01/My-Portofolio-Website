@@ -310,3 +310,16 @@ textarea {
     max-width: 32%;
   }
 }
+
+/* ===== Animasi Fade Up Saat Masuk Viewport ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
